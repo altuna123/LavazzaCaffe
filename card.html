@@ -23,20 +23,7 @@
         </ul>
     </nav>
 </header>
-<script>
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const closeMenuBtn = document.getElementById('close-menu-btn');
-    const menuLinks = document.querySelector('.menu-links');
-    const header = document.querySelector('header');
 
-    hamburgerBtn.addEventListener('click', () => {
-        header.classList.add('show-mobile-menu');
-    });
-
-    closeMenuBtn.addEventListener('click', () => {
-        header.classList.remove('show-mobile-menu');
-    });
-</script>
 <div class="header">
     <p class="logo"></p>
     <div class="cart"><i class="fa-solid fa-cart-shopping"></i><p id="count">0</p></div>
@@ -51,6 +38,8 @@
             <h3>Total</h3>
             <h2 id="total">$ 0.00</h2>
         </div>
+        <button id="order-button" class="order-button">Place Order</button>
+        <p id="order-message" class="order-message"></p>
     </div>
 </div>
 
@@ -171,10 +160,35 @@
             }).join('');
         }
     }
+    document.getElementById('order-button').addEventListener('click', function() {
+        document.getElementById('order-message').textContent = "Your delivery will arrive shortly!";
+    });
 </script>
 </body>
 </html>
 <style>
+             .order-button {
+                    width: 100%;
+                    padding: 10px;
+                    border: none;
+                    border-radius: 5px;
+                    background-color: black;
+                    color: white;
+                    cursor: pointer;
+                    margin-top: 20px;
+                    font-size: 16px;
+                }
+                
+                .order-button:hover {
+                    background-color: #333;
+                }
+                
+                .order-message {
+                    margin-top: 10px;
+                    font-size: 16px;
+                    color:black;
+                }
+                  
   * {
     margin: 0;
     padding: 0;
@@ -197,7 +211,7 @@ header {
     left: 0;
     width: 100%;
     padding: 20px;
-    background-color: ;
+    background-color: #333;
     z-index: 1000;
 }
 
